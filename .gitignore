@@ -16,3 +16,5 @@ build/*
 data/*
 build-release/*
 *.db
+build-debug/*
+CMakeLists.txt.user

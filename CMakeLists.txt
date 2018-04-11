@@ -26,16 +26,16 @@ find_package(Threads)
 #Get lists of the source files
 FILE(GLOB SOURCEFILES ./src/library/*.cpp ./src/library/*.c)
 
-FILE(GLOB TEST_PROGRAM_SOURCE ./src/executables/testProgram/*.cpp ./src/executables/testProgram/*.c)
+FILE(GLOB SEND_MONEY_SOURCE ./src/executables/SendMoney/*.cpp ./src/executables/SendMoney/*.c)
 
 #Create a libraries
 add_library(commonLibrary SHARED  ${SOURCEFILES})
 
 
 #Tell CMake what executables to make
-ADD_EXECUTABLE(testProgram ${TEST_PROGRAM_SOURCE}) 
+ADD_EXECUTABLE(SendMoney ${SEND_MONEY_SOURCE}) 
 
 target_link_libraries(commonLibrary ${CMAKE_THREAD_LIBS_INIT} bitcoin bitcoin-network bitcoin-client bitcoin-protocol bitcoin-explorer ${Boost_LIBRARIES} ${Boost_SYSTEM_LIBRARY} ) 
 
 #link libraries to executable
-target_link_libraries(testProgram commonLibrary)
+target_link_libraries(SendMoney commonLibrary)
